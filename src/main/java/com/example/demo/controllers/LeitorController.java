@@ -77,5 +77,6 @@ public class LeitorController {
         }
         return ResponseEntity.notFound().build();
     }
+
 }
 

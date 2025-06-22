@@ -20,13 +20,13 @@ public class EmprestimoController {
     private EmprestimoService emprestimoService;
 
     @GetMapping
-    @Operation(summary = "Listar todos os Emprestimos.", description = "Retorna todos os Emprestimos já cadastrados no sistema!")
+    @Operation(summary = "Listar todos os empréstimos.", description = "Retorna todos os empréstimos já cadastrados no sistema!")
     public List<EmprestimoEntities> getTodos() {
         return emprestimoService.listarTodos();
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Lista os emprestimos por ID.")
+    @Operation(summary = "Lista os empréstimos por ID.")
     public ResponseEntity<Object> getPorId(@PathVariable UUID id) {
         Optional<EmprestimoEntities> emprestimo = emprestimoService.buscarPorId(id);
 
@@ -38,7 +38,7 @@ public class EmprestimoController {
     }
 
     @PostMapping
-    @Operation(summary = "Insere um novo emprestimo.")
+    @Operation(summary = "Insere um novo empréstimo.")
     public ResponseEntity<?> criar(@RequestBody InserirEmprestimoDTO dto) {
         Object resultado = emprestimoService.criarEmprestimo(dto);
         if (resultado instanceof String) {
@@ -49,7 +49,7 @@ public class EmprestimoController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deleta um emprestimo.")
+    @Operation(summary = "Deleta um empréstimo.")
     public ResponseEntity<?> deletar(@PathVariable UUID id) {
         boolean deletado = emprestimoService.deletar(id);
         if (deletado) {

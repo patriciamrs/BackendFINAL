@@ -41,7 +41,7 @@ public class EmprestimoService {
         LocalDateTime agora = LocalDateTime.now();
         if (agora.getDayOfWeek() == DayOfWeek.SATURDAY || agora.getDayOfWeek() == DayOfWeek.SUNDAY ||
                 agora.getHour() < 8 || agora.getHour() >= 22) {
-            return "Só pode emprestar de segunda a sexta, das 8h às 22h";
+            return "Só criamos empréstimos de segunda à sexta, das 8h às 22h";
         }
 
         Optional<LivrosEntities> livroOpt = livrosRepository.findById(dto.getIdLivro());
