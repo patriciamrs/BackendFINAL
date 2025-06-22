@@ -32,6 +32,9 @@ public class LivrosEntities {
         this.disponibilidade = disponibilidade;
     }
 
+    public LivrosEntities(String nome, String autor) {
+    }
+
     public UUID getId() {
         return id_livro;
     }

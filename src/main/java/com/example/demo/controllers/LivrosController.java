@@ -1,16 +1,13 @@
 package com.example.demo.controllers;
 
-import com.example.demo.entities.LeitorEntities;
+import com.example.demo.dtos.InserirLivroDTO;
 import com.example.demo.entities.LivrosEntities;
 import com.example.demo.repositories.LivrosRepository;
 import com.example.demo.services.LivrosService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -42,8 +39,14 @@ public class LivrosController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/InserirNovoLivro")
+    @PostMapping("/api/InserirNovoLivro")
     @Operation(summary = "Insira um novo livro.", description = "Preencha os campos abaixo para cadastrar um novo livro.")
+        public ResponseEntity<LivrosEntities> criar(@RequestBody InserirLivroDTO dtos) {
+            LivrosEntities livro = new LivrosEntities(dtos.getNome(), dtos.getAutor());
+            LivrosEntities salvo = livrosRepository.save(livro);
+            return ResponseEntity.status(201).body(salvo);
+        }
+    }
 
-    public
-}
+
+
