@@ -89,7 +89,6 @@ Gerenciar livros e empréstimos manualmente pode ser ineficiente para uma biblio
 
 - `404 Not Found`: recurso não encontrado.
 - `400 Bad Request`: dados inválidos ou campos ausentes.
-- `201 Created`: recurso criado com sucesso.
 
 ---
 
